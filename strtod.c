@@ -17,21 +17,9 @@
  * RCS: @(#) $Id$
  */
 
-#include "config.h"
-#ifdef HAVE_STDLIB_H
-#   include <stdlib.h>
-#endif
+#include <stdlib.h>
 #include <ctype.h>
 #include <errno.h>
-extern  int     errno;
-
-#ifndef __STDC__
-# ifdef __GNUC__
-#  define const __const__
-# else
-#  define const
-# endif
-#endif
 
 #ifndef TRUE
 #define TRUE 1
@@ -80,8 +68,8 @@ static double powersOf10[] = {	/* Table giving binary powers of 10.  Entry */
  */
 
 double
-strtod(string, endPtr)
-    const char *string;		/* A decimal ASCII floating-point number,
+p_strtod(const char * string, char **endPtr)
+    /* const char *string;	A decimal ASCII floating-point number,
 				 * optionally preceded by white space.
 				 * Must have form "-I.FE-X", where I is the
 				 * integer part of the mantissa, F is the
@@ -93,7 +81,7 @@ strtod(string, endPtr)
 				 * The "E" may actually be an "e".  E and X
 				 * may both be omitted (but not just one).
 				 */
-    char **endPtr;		/* If non-NULL, store terminating character's
+    /* char **endPtr;		If non-NULL, store terminating character's
 				 * address here. */
 {
     int sign, expSign = FALSE;
