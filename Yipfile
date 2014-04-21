@@ -19,4 +19,5 @@ public_headers
 sources
 {
 	strtod.c
+	strtod.cpp
 }

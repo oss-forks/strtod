@@ -17,6 +17,7 @@
  * RCS: @(#) $Id$
  */
 
+#include "strtod.h"
 #include <stdlib.h>
 #include <ctype.h>
 #include <errno.h>
